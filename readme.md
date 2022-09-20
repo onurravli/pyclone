@@ -16,8 +16,14 @@ Before using, be sure that you have installed `git`, `python`, `requests` and `B
     If you don't pass any parameter, you will be prompted for `username` and `destination folder`.
   
 
+  or
+
+
 `pyclone <username>`  
     If you don't pass any location folder parameter, by default repos will be cloned into current folder `.`.
+
+
+  or
 
   
 `pyclone <username> <destination-folder>`  
