@@ -48,7 +48,7 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("Keyboard interrupt detected. Exiting.")
+        print("\nKeyboard interrupt detected. Exiting.")
     except ModuleNotFoundError:
         print(
             "Some of required modules don't installed. Please install them and try again.")
