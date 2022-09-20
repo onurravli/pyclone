@@ -13,18 +13,14 @@ Before using, be sure that you have installed `git`, `python`, `requests` and `B
 ## Usage
 
 `pyclone`  
-    If you don't pass any parameter, you will be prompted for `username` and `destination folder`.
+> If you don't pass any parameter, you will be prompted for `username` and `destination folder`.
   
-
-  or
-
+or
 
 `pyclone <username>`  
-    If you don't pass any location folder parameter, by default repos will be cloned into current folder `.`.
+> If you don't pass any location folder parameter, by default repos will be cloned into current folder `.`.
 
+or
 
-  or
-
-  
 `pyclone <username> <destination-folder>`  
-    Repos from `username` will be cloned into the folder that you passed.
+> Repos from `username` will be cloned into the folder that you passed.
