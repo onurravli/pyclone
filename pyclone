@@ -7,11 +7,7 @@ import subprocess as sp
 from sys import argv
 
 
-def main():
-    username = argv[1]
-    loc = ""
-    if len(argv) == 3:
-        loc = argv[2]
+def clone(username, location):
     url = f"https://github.com/{username}?tab=repositories"
     key = "name codeRepository"
     req = requests.get(url)
@@ -19,19 +15,42 @@ def main():
     for repo in soup.find_all('a', attrs={'itemprop': key}):
         repo_url = "https://github.com" + repo.get('href')
         try:
-            if len(argv) == 2:
-                print(f"Cloning {repo.get('href')[1:]}")
-                sp.Popen(["git", "clone", repo_url])
-            elif len(argv) == 3:
-                print(f"Cloning {repo.get('href')[1:]} into {loc}")
-                sp.Popen(["git", "-C", loc, "clone", repo_url])
+            print(f"Cloning {repo.get('href')[1:]} into {location}.")
+            sp.Popen(["git", "-C", location, "clone", repo_url])
         except:
             print(f"An error occured, {repo.get('href')[1:]} not cloned.")
-    pass
+
+
+def main():
+    username, location = "", ""
+    if len(argv) == 1:  # Without any parameter
+        username = input("Username: ")
+        location = input("Clone location: ")
+        pass
+    elif len(argv) == 2:  # Without location parameter
+        username = argv[1]
+        location = "."
+        pass
+    elif len(argv) == 3:  # With username and location parameter.
+        username = argv[1]
+        location = argv[2]
+        pass
+    else:
+        print("Usage: pyclone | pyclone <username> | pyclone <username> <location>")
+        return 1
+
+    print(
+        f"Okay, {username}'s all of public repos will be cloned to {location} soon.")
+    clone(username, location)
 
 
 if __name__ == "__main__":
-    if len(argv) == 1:
-        print("Enter a username.")
-    else:
+    try:
         main()
+    except KeyboardInterrupt:
+        print("Keyboard interrupt detected. Exiting.")
+    except ModuleNotFoundError:
+        print(
+            "Some of required modules don't installed. Please install them and try again.")
+    except:
+        print("An error occured. Please open an issue on https://github.com/onurravli/pyclone.")
