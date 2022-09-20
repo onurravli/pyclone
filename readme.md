@@ -4,7 +4,9 @@ A small script to download all of the **public** repos of a user.
 ## Usage
 Before usage, be sure that you have installed `git`, `python`, `requests` and `BeautifulSoup` package.
 
-In order to install required packages, you can run `pip install -r requirements.txt`. After installing required packages, just run `pyclone <username>`.
+In order to install required packages, you can run `pip install -r requirements.txt`.
+
+After installing required packages, just run `pyclone <username>` or `pyclone <username> <destination-folder>`.
 
 ## Requirements
 1. git

@@ -24,7 +24,7 @@ def main():
                 sp.Popen(["git", "clone", repo_url])
             elif len(argv) == 3:
                 print(f"Cloning {repo.get('href')[1:]} into {loc}")
-                sp.Popen(["git", "clone", "-C", repo_url])
+                sp.Popen(["git", "-C", loc, "clone", repo_url])
         except:
             print(f"An error occured, {repo.get('href')[1:]} not cloned.")
     pass
