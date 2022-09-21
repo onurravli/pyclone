@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+__author__ = "Onur Ravli"
+__author_email__ = "onurravli@hotmail.com"
 
 from bs4 import BeautifulSoup as bs
 import requests
